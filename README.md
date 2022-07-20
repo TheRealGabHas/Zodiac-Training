@@ -1,1 +1,1 @@
->>> Available at [zodiac.gabhas.fr](https://zodiac.gabhas.fr)
+> Available at [zodiac.gabhas.fr](https://zodiac.gabhas.fr)
