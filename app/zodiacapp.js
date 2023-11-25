@@ -1,10 +1,25 @@
 let total_score = 0
 
+const sign = ["Aries",
+    "Taurus",
+    "Gemini",
+    "Cancer",
+    "Leo",
+    "Virgo",
+    "Libra",
+    "Scorpio",
+    "Sagittarius",
+    "Capricorn",
+    "Aquarius",
+    "Pisces"
+];
+
 async function changeBgColor(element, color, time){
     let initial_color = element.style.getPropertyValue("background-color");
     element.style.setProperty("background-color", color);
     await delay(time);
     element.style.setProperty("background-color", initial_color);
+    element.style.setProperty("background-color", "transparent");
 }
 
 function start_zodiac() {
@@ -35,21 +50,9 @@ document.getElementById("start-btn").addEventListener('click', () => {
     }
 });
 
+
 function ask() {
-    let sign = ["Aries",
-        "Taurus",
-        "Gemini",
-        "Cancer",
-        "Leo",
-        "Virgo",
-        "Libra",
-        "Scorpio",
-        "Sagittarius",
-        "Capricorn",
-        "Aquarius",
-        "Pisces"
-    ];
-    let choice = sign[Math.floor(Math.random() * sign.length)];
+    const choice = sign[Math.floor(Math.random() * sign.length)];
     document.getElementsByClassName('asked-zodiac')[0].innerHTML = choice;
     return choice;
 }
@@ -58,8 +61,7 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
-document.querySelectorAll('.answer').forEach(el => el.addEventListener("click", e => {
-    let answer = e.target;
+function check_answer(answer) {
     if(document.getElementById("start-btn").innerHTML === "Running"){ // Game is running
         if(answer.id === document.getElementsByClassName('asked-zodiac')[0].innerHTML){ // Answer is correct
             total_score++;
@@ -70,28 +72,26 @@ document.querySelectorAll('.answer').forEach(el => el.addEventListener("click", 
             changeBgColor(document.getElementById(answer.id), "#fc4141", 100).then(() => {});
         }
     }
+}
+
+
+document.querySelectorAll('.answer').forEach(element => element.addEventListener("mousedown", item => {
+    const answer = item.target;
+    check_answer(answer);
 }));
 
-document.querySelectorAll("i.answer").forEach(el => el.addEventListener("click", e => {
-    let answer = document.getElementById(e.target.classList[1]);
-    if(document.getElementById("start-btn").innerHTML === "Running"){ // Game is running
-        if(answer.id === document.getElementsByClassName('asked-zodiac')[0].innerHTML){ // Answer is correct
-            total_score++;
-            document.getElementById('score').innerHTML = "Score : " + total_score;
-            changeBgColor(document.getElementById(answer.id), "#2fff2f", 100).then(() => {});
-            ask();
-        } else {
-            changeBgColor(document.getElementById(answer.id), "#fc4141", 100).then(() => {});
-        }
-    }
+document.querySelectorAll("i.answer").forEach(element => element.addEventListener("mousedown", item => {
+    const answer = document.getElementById(item.target.classList[1]);
+    check_answer(answer);
 }));
+
 
 document.addEventListener('click', item => {
     if(item.target.id === "share") {
         if(document.getElementById("timer").innerHTML === "Time : 0s"){
-            let time = document.getElementById("timer").innerHTML;
-            let score = document.getElementById("score").innerHTML;
-            let message = "🔮 zodiac.gabhas.fr 🔮\n⏳ "+ time +" remaining\n🎯 "+ score +" pts";
+            const time = document.getElementById("timer").innerHTML;
+            const score = document.getElementById("score").innerHTML;
+            const message = "🔮 zodiac.gabhas.fr 🔮\n⏳ "+ time +" remaining\n🎯 "+ score +" pts";
             navigator.clipboard.writeText(message).then(() => {});
             changeBgColor(item.target, "#02ff68", 200).then(() => {});
         } else {

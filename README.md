@@ -14,10 +14,10 @@ You have to recognize the most zodiac symbols as you can in 30 seconds.
 ## Links
 
 - 🔮 **Game :** [zodiac.gabhas.fr](https://zodiac.gabhas.fr)
-- 👑 **Creator :** [gabhas.fr](https://gabhas.fr)
+- 👑 **Creator :** [GabHas](https://gabhas.fr)
 
 ## To-do
 - [x] "Share Result" button
-- [ ] Responsive
-- [ ] Refactor JS script
+- [x] Responsive
+- [x] Refactor JS script
 

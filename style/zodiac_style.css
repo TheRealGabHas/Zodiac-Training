@@ -1,21 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
 a::selection, p::selection {
     background-color: transparent;
     color: currentColor;
 }
+
 .main-content {
-    position: absolute;
-    width: 100%; height: 100%;
-    background-color: #66aeff;
+    width: 100%;
+    height: 100%;
 }
 
 .asked-zodiac, .asked-zodiac-subtitle {
@@ -26,22 +19,24 @@ a::selection, p::selection {
 }
 
 .asked-zodiac {
-    font-size: 5em;
-    margin-bottom: 0;
+    font-size: 4.5em;
 }
-.asked-zodiac-subtitle{
-    font-size: 2em;
+
+.asked-zodiac-subtitle {
+    font-size: 1.7em;
+    margin-bottom: 1%;
 }
 
 .icon-container {
-    width: 70%; height: auto;
-    margin: auto;
+    margin-left: 5%;
+    margin-right: 5%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 1em;
+    grid-column-gap: .75em;
     grid-row-gap: 0.5em;
 }
+
 .icon-container a {
     text-align: center;
     font-size: 3em;
@@ -49,21 +44,21 @@ a::selection, p::selection {
     text-decoration: none;
     z-index: 50;
 }
-.icon-container a span {
-    z-index: 40;
-}
+
 .icon-container a:hover {
     background-color: white;
     cursor: pointer;
 }
+
 .icon-container a::selection {
     background-color: transparent;
 }
+
 .data-board {
-    width: 70%;
-    height: auto;
+    max-width: 70%;
     border: 1px solid white;
-    margin: 1em auto auto;
+    margin: 1em auto;
+
     display: flex;
     justify-content: space-between;
     font-weight: bold;
@@ -77,17 +72,21 @@ a::selection, p::selection {
     color: white;
     text-decoration: none;
 }
+
 #start-btn:hover {
     background-color: #078aec;
     cursor: pointer;
 }
+
 #start-btn:active {
     cursor: not-allowed;
 }
+
 #start-btn::selection {
     background-color: transparent;
     color: currentColor;
 }
+
 #timer, #score, #share {
     margin: 0;
     padding: 1em;
@@ -97,13 +96,44 @@ a::selection, p::selection {
     background-color: #2aa7ff;
     color: white;
 }
+
 #share {
     background-color: #2ada2f;
 }
-#timer:hover, #score:hover{
+
+#timer:hover, #score:hover {
     cursor: default;
 }
+
 #share:hover {
     cursor: pointer;
     background-color: #1bc51f;
+}
+
+@media screen and (max-width: 541px) {
+
+    .icon-container {
+        margin: 0 auto;
+    }
+    .data-board {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: .1em;
+        grid-row-gap: 0.1em;
+        & a, & p {
+            border: 1px solid white;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .asked-zodiac {
+        font-size: 3em;
+    }
+
+    .asked-zodiac-subtitle {
+        font-size: .65em;
+        margin-bottom: 1%;
+    }
 }
