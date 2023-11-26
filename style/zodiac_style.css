@@ -11,6 +11,16 @@ a::selection, p::selection {
     height: auto;
 }
 
+#warning {
+    margin-bottom: .5em;
+    margin-top: .5em;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    font-size: 2em;
+    color: red;
+}
+
 .asked-zodiac, .asked-zodiac-subtitle {
     color: white;
     font-weight: bold;
