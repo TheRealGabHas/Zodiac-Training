@@ -14,7 +14,7 @@ const sign = ["Aries",
     "Pisces"
 ];
 
-async function changeBgColor(element, color, time){
+async function changeBgColor(element, color, time) {
     let initial_color = element.style.getPropertyValue("background-color");
     element.style.setProperty("background-color", color);
     await delay(time);
@@ -27,10 +27,10 @@ function start_zodiac() {
     document.getElementById("start-btn").innerHTML = "Running";
     document.getElementById('score').innerHTML = "Score : " + total_score;
     ask();
-    let timer = setInterval(function (){
+    let timer = setInterval(function () {
         document.getElementById("timer").innerHTML = "Time : " + time + "s";
         time--;
-        if(time < 0){
+        if (time < 0) {
             clearInterval(timer);
             document.getElementById("start-btn").innerHTML = "Start";
             document.querySelectorAll('.answer').forEach(element => changeBgColor(element, "white", 1000).then(() => {}));
@@ -41,9 +41,9 @@ function start_zodiac() {
 }
 
 document.getElementById("start-btn").addEventListener('click', () => {
-    if(document.getElementById("start-btn").innerHTML === "Start"){
+    if (document.getElementById("start-btn").innerHTML === "Start") {
         start_zodiac();
-    } else if(document.getElementById("start-btn").innerHTML === "Running"){
+    } else if (document.getElementById("start-btn").innerHTML === "Running") {
         return "running";
     }
 });
@@ -60,8 +60,8 @@ function delay(time) {
 }
 
 function check_answer(answer) {
-    if(document.getElementById("start-btn").innerHTML === "Running"){ // Game is running
-        if(answer.id === document.getElementsByClassName('asked-zodiac')[0].innerHTML){ // Answer is correct
+    if (document.getElementById("start-btn").innerHTML === "Running") { // Game is running
+        if (answer.id === document.getElementsByClassName('asked-zodiac')[0].innerHTML) { // Answer is correct
             total_score++;
             document.getElementById('score').innerHTML = "Score : " + total_score;
             changeBgColor(document.getElementById(answer.id), "#2fff2f", 100).then(() => {});
@@ -85,15 +85,15 @@ document.querySelectorAll("i.answer").forEach(element => element.addEventListene
 
 
 document.addEventListener('click', item => {
-    if(item.target.id === "share") {
-        if(document.getElementById("timer").innerHTML === "Time : 0s"){
+    if (item.target.id === "share") {
+        if (document.getElementById("timer").innerHTML === "Time : 0s") {
             const time = document.getElementById("timer").innerHTML;
             const score = document.getElementById("score").innerHTML;
-            const message = "🔮 zodiac.gabhas.fr 🔮\n⏳ "+ time +" remaining\n🎯 "+ score +" pts";
+            const message = "🔮 zodiac.gabhas.fr 🔮\n⏳ " + time + " remaining\n🎯 " + score + " pts";
             navigator.clipboard.writeText(message).then(() => {});
             changeBgColor(item.target, "#02ff68", 200).then(() => {});
         } else {
             changeBgColor(item.target, "#cc0000", 200).then(() => {});
         }
     }
-})
+});
