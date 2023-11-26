@@ -1,4 +1,4 @@
-let total_score = 0
+let total_score = 0;
 
 const sign = ["Aries",
     "Taurus",
@@ -19,7 +19,6 @@ async function changeBgColor(element, color, time){
     element.style.setProperty("background-color", color);
     await delay(time);
     element.style.setProperty("background-color", initial_color);
-    element.style.setProperty("background-color", "transparent");
 }
 
 function start_zodiac() {
@@ -34,9 +33,8 @@ function start_zodiac() {
         if(time < 0){
             clearInterval(timer);
             document.getElementById("start-btn").innerHTML = "Start";
-            document.querySelectorAll('.answer').forEach(element => changeBgColor(element, "white", 1000).then(() => {}))
-            document.getElementById("share").style.setProperty("background-color", "#2ada2f")
-
+            document.querySelectorAll('.answer').forEach(element => changeBgColor(element, "white", 1000).then(() => {}));
+            document.getElementById("share").style.setProperty("background-color", "#2ada2f");
         }
     }, 1000)
 
@@ -44,7 +42,7 @@ function start_zodiac() {
 
 document.getElementById("start-btn").addEventListener('click', () => {
     if(document.getElementById("start-btn").innerHTML === "Start"){
-        start_zodiac()
+        start_zodiac();
     } else if(document.getElementById("start-btn").innerHTML === "Running"){
         return "running";
     }
