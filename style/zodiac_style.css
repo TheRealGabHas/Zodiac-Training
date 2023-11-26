@@ -8,7 +8,7 @@ a::selection, p::selection {
 
 .main-content {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .asked-zodiac, .asked-zodiac-subtitle {
@@ -108,6 +108,27 @@ a::selection, p::selection {
 #share:hover {
     cursor: pointer;
     background-color: #1bc51f;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#github-credit {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
+
+#gh-link {
+    padding-left: .2em;
 }
 
 @media screen and (max-width: 541px) {
