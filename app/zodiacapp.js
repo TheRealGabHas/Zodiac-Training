@@ -41,7 +41,6 @@ function start_zodiac() {
             document.getElementById("share").style.setProperty("background-color", "#2ada2f");
         }
     }, 1000)
-
 }
 
 START_BTN.addEventListener('click', () => {
